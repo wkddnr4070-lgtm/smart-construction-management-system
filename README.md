@@ -27,26 +27,26 @@
 
 ## 설치 및 실행
 
-### 1) 권장 설치 (네트워크/사내 레지스트리 대응)
+### macOS / Linux
 ```bash
 npm run setup
-```
-
-사내 npm 레지스트리를 써야 한다면:
-```bash
-NPM_REGISTRY_URL=https://<your-internal-registry> npm run setup
-```
-
-### 2) 개발 서버 실행
-```bash
 npm run dev
 ```
 
-브라우저에서 `http://localhost:3000` 접속
+### Windows PowerShell
+```powershell
+npm run setup:win
+npm run dev
+```
 
 ## Troubleshooting
-- `npm install` 또는 `npm run setup` 시 외부 registry 접근이 차단될 수 있습니다.
-- 이 경우 `NPM_REGISTRY_URL`에 사내 허용 레지스트리를 지정해 다시 실행하세요.
+- `npm install` 또는 setup 시 외부 registry 접근이 차단될 수 있습니다.
+  - 사내 레지스트리를 써야 한다면:
+    - macOS/Linux: `NPM_REGISTRY_URL=https://<your-internal-registry> npm run setup`
+    - Windows PowerShell: `$env:NPM_REGISTRY_URL='https://<your-internal-registry>'; npm run setup:win`
+- **PowerShell Execution Policy 오류**(예: script 실행 차단)가 나면 아래 명령으로 해결할 수 있습니다.
+  - `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`
+  - 또는 일회성 실행: `powershell -ExecutionPolicy Bypass -File scripts/install-deps.ps1`
 
 ## 다음 단계(4단계)
 - 승인 워크플로우 상태 변경 화면/로직 구현

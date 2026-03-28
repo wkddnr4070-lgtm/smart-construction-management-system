@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "setup": "bash scripts/install-deps.sh"
+    "setup": "bash scripts/install-deps.sh",
+    "setup:win": "powershell -ExecutionPolicy Bypass -File scripts/install-deps.ps1"
   },
   "dependencies": {
     "next": "15.2.0",
